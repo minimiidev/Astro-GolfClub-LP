@@ -1,0 +1,7 @@
+{
+	"name": "golf-club",
+	"compatibility_date": "2026-03-10", // Update to the day you deploy
+	"assets": {
+		"directory": "./dist",
+	},
+}

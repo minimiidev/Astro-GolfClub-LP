@@ -1,7 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import cloudflare from '@astrojs/cloudflare';
+
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -9,10 +10,11 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   prefetch: false,
 
-  site: `https://test.vercel.app/`,
 
   output: 'static',
-  adapter: vercel(),
+  adapter: cloudflare(
+    // { imageService: { build: 'compile', runtime: 'cloudflare-binding' } }
+  ),
 
   vite: {
     plugins: [tailwindcss(),
