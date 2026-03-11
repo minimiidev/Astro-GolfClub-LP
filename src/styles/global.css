@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@import 'locomotive-scroll/dist/locomotive-scroll.css';
+
+/* Global */
+* {
+    scroll-behavior: smooth;
+}
+
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy-ExtraBold.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Theme */
+@theme {
+    --color-primary: #FFF3DE;
+    --color-secondary: #4F3A21;
+    --color-accent: #a5d621;
+    --color-accent-dark: #15a138;
+
+    /* --font-inter: Inter, sans-serif; */
+    --font-montserrat: Montserrat, sans-serif;
+    --font-gilroy: Gilroy, sans-serif;
+}
+
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Montserrat";
+    color: var(--color-primary);
+}
+
+
+/* Design System */
+.h1 {
+    @apply font-extrabold text-5xl md:text-7xl lg:text-9xl tracking-wide;
+}
+
+.h2 {
+    @apply font-bold text-4xl md:text-5xl lg:text-7xl tracking-wide;
+}
+
+.h3 {
+    @apply font-bold text-3xl md:text-4xl lg:text-5xl tracking-wide;
+}
+
+.h4 {
+    @apply font-bold text-2xl md:text-3xl lg:text-4xl tracking-wide;
+}
+
+a,
+p,
+span,
+label {
+    @apply text-base md:text-xl;
+}
+
+/* Utilities */
+@utility flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@utility container {
+    padding-inline: 10px;
+    margin-inline: auto;
+
+    @variant sm {
+        padding-inline: 20px;
+    }
+
+    @variant lg {
+        padding-inline: 80px;
+    }
+
+    @variant xl {
+        padding-inline: 120px;
+    }
+}

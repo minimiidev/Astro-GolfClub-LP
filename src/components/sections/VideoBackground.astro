@@ -1,0 +1,35 @@
+---
+
+---
+
+<!-- VIDEO -->
+<div
+	id="videoBg"
+	class="top-0 left-0 -z-10 fixed bg-black opacity-40 min-w-full min-h-dvh"
+>
+</div>
+<video
+	src="/hero.mp4"
+	class="top-0 left-0 -z-20 fixed w-full h-full object-cover"
+	autoplay
+	muted
+	loop></video>
+
+<script>
+	import gsap from "gsap";
+	import ScrollTrigger from "gsap/ScrollTrigger";
+
+	const videoBg = document.querySelector("#videoBg") as HTMLDivElement;
+
+	gsap.to(videoBg, {
+		backgroundColor: "#000",
+		opacity: 1,
+		scrollTrigger: {
+			trigger: videoBg,
+			scroller: "body",
+			start: "top -30%",
+			end: "top -100%",
+			scrub: 2,
+		},
+	});
+</script>

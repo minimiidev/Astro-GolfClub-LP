@@ -1,0 +1,42 @@
+---
+import Heading from "../ui/Heading.astro";
+---
+
+<nav class="top-0 left-0 z-50 fixed w-full h-30">
+	<div class="flex justify-between items-center h-full container">
+		<article class="flex items-center gap-4">
+			<img src="icon.png" alt="" />
+			<Heading tagName="h3" tagSize="h3"> GOLF CLUB </Heading>
+		</article>
+		<ul class="hidden lg:flex items-center gap-4 [&>li]:font-medium">
+			<li><a href="#">TOPTRACER RANGE</a></li>
+			<li><a href="#">GOLF LESSONS</a></li>
+			<li><a href="#">AVENTURE GOLF</a></li>
+			<li><a href="#">COFFE SHOP</a></li>
+			<li><a href="#">LEAGUES</a></li>
+		</ul>
+	</div>
+</nav>
+
+<script>
+	import gsap from "gsap";
+	import ScrollTrigger from "gsap/ScrollTrigger";
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	const nav = document.querySelector("nav") as HTMLElement;
+
+	gsap.to(nav, {
+		backgroundColor: "#000",
+		duration: 0.5,
+		height: "120px",
+		delay: 1,
+		scrollTrigger: {
+			trigger: nav,
+			scroller: "body",
+			start: "top -20%",
+			end: "top -50%",
+			scrub: 1,
+		},
+	});
+</script>

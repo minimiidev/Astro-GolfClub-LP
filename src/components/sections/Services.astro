@@ -1,0 +1,19 @@
+---
+import Card from "../ui/Card.astro";
+---
+
+<section class="flex-center w-full h-[60vh] max-h-fit">
+	<div
+		class="flex lg:flex-row flex-col justify-between items-center gap-10 lg:gap-12 px-10 md:px-15 lg:px-20 w-full h-full"
+	>
+		{
+			Array.from({ length: 3 }).map((_, i) => (
+				<Card
+					title="Title"
+					descriptionOverlay="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae atque nisi impedit numquam provident placeat accusantium illo ipsa at. Possimus, voluptate necessitatibus modi adipisci odit nisi reprehenderit laudantium laborum at."
+					titleOverlay="Title Overlay"
+				/>
+			))
+		}
+	</div>
+</section>

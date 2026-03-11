@@ -1,0 +1,47 @@
+---
+import Heading from "../ui/Heading.astro";
+---
+
+<div class="flex items-center h-50 overflow-hidden">
+	<div
+		id="marquee"
+		class="z-30 flex gap-4 w-max font-['gilroy'] [-webkit-text-stroke:1px_white] text-transparent [&>h2]:hover:text-accent whitespace-nowrap marquee-track"
+	>
+		<Heading tagName="h2" tagSize="h1" class:list={"min-w-fit"}
+			>COFFE SHOP</Heading
+		>
+		<Heading tagName="h2" tagSize="h1" class:list={"min-w-fit"}
+			>TOPTRACER RANGE</Heading
+		>
+		<Heading tagName="h2" tagSize="h1" class:list={"min-w-fit"}
+			>GOLF LESSONS</Heading
+		>
+		<Heading tagName="h2" tagSize="h1" class:list={"min-w-fit"}
+			>CRAZY GOLF</Heading
+		>
+	</div>
+</div>
+
+<script>
+	const track = document.getElementById("marquee")!;
+
+	// Clone until track is wider than 2x the viewport
+	while (track.scrollWidth < window.innerWidth * 2) {
+		track.innerHTML += track.innerHTML;
+	}
+</script>
+
+<style>
+	#marquee {
+		animation: marquee 10s linear infinite;
+	}
+
+	@keyframes marquee {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-50%);
+		}
+	}
+</style>

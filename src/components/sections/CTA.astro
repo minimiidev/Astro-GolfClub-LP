@@ -1,0 +1,94 @@
+---
+import Heading from "../ui/Heading.astro";
+---
+
+<section class="my-12 w-full">
+	<div class="flex-col flex-center container">
+		<Heading
+			id={"cta-title"}
+			tagName="h2"
+			tagSize="h2"
+			class:list={"text-center [-webkit-text-stroke:1px_white] text-black stroke -mb-3"}
+			>WHAT ARE YOU WAITING FOR?</Heading
+		>
+		<div class="flex gap-4">
+			<article
+				class="group relative flex-center bg-accent rounded-4xl w-full h-44 overflow-hidden text-black"
+			>
+				<img
+					src="/card1.avif"
+					alt=""
+					class="absolute opacity-0 group-hover:opacity-100 w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+				/>
+				<Heading
+					tagName="h4"
+					tagSize="h4"
+					class:list={"z-10 relative group-hover:text-white transition-colors duration-500"}
+				>
+					TOPTRACER RANGE
+				</Heading>
+			</article>
+			<article
+				class="group relative flex-center bg-accent rounded-4xl w-full h-44 overflow-hidden text-black"
+			>
+				<img
+					src="/card1.avif"
+					alt=""
+					class="absolute opacity-0 group-hover:opacity-100 w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+				/>
+				<Heading
+					tagName="h4"
+					tagSize="h4"
+					class:list={"z-10 relative group-hover:text-white transition-colors duration-500"}
+				>
+					TOPTRACER RANGE
+				</Heading>
+			</article>
+			<article
+				class="group relative flex-center bg-accent rounded-4xl w-full h-44 overflow-hidden text-black"
+			>
+				<img
+					src="/card1.avif"
+					alt=""
+					class="absolute opacity-0 group-hover:opacity-100 w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+				/>
+				<Heading
+					tagName="h4"
+					tagSize="h4"
+					class:list={"z-10 relative group-hover:text-white transition-colors duration-500"}
+				>
+					TOPTRACER RANGE
+				</Heading>
+			</article>
+		</div>
+	</div>
+</section>
+
+<script>
+	import { gsap } from "gsap";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+	import { SplitText } from "gsap/SplitText";
+	gsap.registerPlugin(ScrollTrigger, SplitText);
+
+	const ctaTitle = document.querySelector("#cta-title") as HTMLElement;
+	const splitTitle = new SplitText(ctaTitle, {
+		type: "words",
+	});
+	splitTitle.words.forEach((word) => {
+		word.classList.add("inline-block");
+		word.classList.add("px-4");
+	});
+
+	gsap.from(splitTitle.words, {
+		opacity: 0,
+		y: 40,
+		stagger: 0.2,
+		duration: 1,
+		ease: "power3.out",
+		scrollTrigger: {
+			trigger: ctaTitle,
+			start: "top 80%",
+			toggleActions: "play none none reverse",
+		},
+	});
+</script>

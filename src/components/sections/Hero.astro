@@ -1,0 +1,72 @@
+---
+import Heading from "../ui/Heading.astro";
+import VideoBackground from "./VideoBackground.astro";
+---
+
+<section class="relative flex-center -mb-20 min-h-dvh">
+	<!-- HERO -->
+	<div
+		id="hero"
+		class="z-10 flex-col flex-center gap-4 w-full text-center container"
+	>
+		<span class="relative">
+			<Heading
+				id={"hero-title-overlay"}
+				tagName="h2"
+				tagSize="h1"
+				class:list={"absolute  [-webkit-text-stroke:1px_var(--color-accent)] text-black top-1 -right-1 -z-10 strok stroke-2 stroke-green-500"}
+			>
+				EAT. DRINK. PLAY
+			</Heading>
+			<Heading id={"hero-title"} tagName="h2" tagSize="h1">
+				EAT. DRINK. PLAY
+			</Heading>
+		</span>
+		<Heading id={"hero-subtitle"} tagName="h1" tagSize="h2"
+			>WELCOME TO THE GOLF CLUB!
+		</Heading>
+		<p id={"hero-text"} class="w-1/2 font-light text-xl!">
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil a
+			blanditiis cumque necessitatibus quas in tempore aperiam tempora
+			dolore ab?
+		</p>
+	</div>
+</section>
+
+<script>
+	import gsap from "gsap";
+	import ScrollTrigger from "gsap/ScrollTrigger";
+
+	const hero = document.querySelector("#hero") as HTMLElement;
+	const heroTitle = document.querySelector("#hero-title") as HTMLElement;
+	const heroTitleOverlay = document.querySelector(
+		"#hero-title-overlay",
+	) as HTMLElement;
+	const heroSubtitle = document.querySelector(
+		"#hero-subtitle",
+	) as HTMLElement;
+	const heroText = document.querySelector("#hero-text") as HTMLElement;
+
+	const tl = gsap.timeline();
+
+	tl.from(heroTitle, {
+		opacity: 0,
+		y: 40,
+		duration: 0.3,
+	})
+		.from(heroTitleOverlay, {
+			opacity: 0,
+			y: 40,
+			duration: 0.5,
+		})
+		.from(heroSubtitle, {
+			opacity: 0,
+			y: 40,
+			duration: 0.5,
+		})
+		.from(heroText, {
+			opacity: 0,
+			y: 40,
+			duration: 0.5,
+		});
+</script>

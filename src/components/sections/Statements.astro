@@ -1,0 +1,65 @@
+---
+import Heading from "../ui/Heading.astro";
+---
+
+<section class="relative flex-center my-40 w-full min-h-120 container">
+	<img
+		id="quote-left"
+		src="/quote.svg"
+		alt=""
+		class="top-0 left-0 absolute size-12"
+	/>
+	<div class="relative flex-center w-full h-full">
+		<Heading
+			tagName="h4"
+			tagSize="h4"
+			class:list={"uppercase w-full text-center h-50 "}
+			>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+			aliquid sed iusto? Similique aliquam iste porro sed quam delectus
+			veniam.</Heading
+		>
+	</div>
+	<img
+		id="quote-right"
+		src="/quote.svg"
+		alt=""
+		class="right-0 bottom-0 absolute size-12 rotate-180"
+	/>
+</section>
+
+<script>
+	import gsap from "gsap";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+	gsap.registerPlugin(ScrollTrigger);
+
+	const quoteLeft = document.querySelector("#quote-left") as HTMLImageElement;
+	const quiteRight = document.querySelector(
+		"#quote-right",
+	) as HTMLImageElement;
+
+	gsap.from(quoteLeft, {
+		x: -100,
+		y: -100,
+		scrollTrigger: {
+			trigger: quoteLeft,
+			scroller: "body",
+			start: "top 55%",
+			end: "top 35%",
+			scrub: 1,
+			toggleActions: "play none none reverse",
+		},
+	});
+
+	gsap.from(quiteRight, {
+		x: 100,
+		y: 100,
+		scrollTrigger: {
+			trigger: quoteLeft,
+			scroller: "body",
+			start: "top 55%",
+			end: "top 35%",
+			scrub: 1,
+			toggleActions: "play none none reverse",
+		},
+	});
+</script>

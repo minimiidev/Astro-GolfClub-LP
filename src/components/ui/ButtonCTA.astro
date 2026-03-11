@@ -1,0 +1,30 @@
+---
+interface Props {
+	href: string;
+	class?: string;
+	color: "custom" | "primary" | "secondary" | "tertiary";
+}
+
+const { href, color } = Astro.props;
+
+const colorMap = {
+	custom: "",
+	primary:
+		"bg-primary text-white hover:bg-white hover:text-primary border-2 border-primary ",
+	secondary:
+		"bg-secondary border-2 border-secondary text-secondary hover:bg-secondary text-white hover:text-secondary hover:bg-white hover:border-secondary",
+	tertiary:
+		"bg-secondary border border-[var(--color-secondary)] text-[var(--color-light)] hover:bg-[var(--color-primary)] ",
+};
+---
+
+<a
+	href={href}
+	class:list={[
+		`min-w-[150px] px-6 py-3 border-2 text-center shadow-lg font-medium transition-all duration-300 ease-in-out  cursor-pointer hover:scale-95 rounded-full 
+        ${colorMap[color]}`,
+		Astro.props.class,
+	]}
+>
+	<slot />
+</a>

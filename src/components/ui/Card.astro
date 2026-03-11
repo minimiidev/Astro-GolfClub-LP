@@ -1,0 +1,68 @@
+---
+import Heading from "./Heading.astro";
+
+interface Props {
+	title: string;
+	titleOverlay: string;
+	descriptionOverlay: string;
+}
+
+const { descriptionOverlay, title, titleOverlay } = Astro.props;
+---
+
+<article
+	class="group relative rounded-2xl w-full lg:w-[30%] min-w-[28%] max-w-full lg:h-[80%] min-h-66.25 overflow-hidden text-white transition-all duration-500 ease-in-out card"
+>
+	<!-- Front -->
+	<div
+		class="relative group-hover:opacity-0 w-full h-full transition-all duration-500"
+	>
+		<img
+			src="/card1.avif"
+			alt=""
+			class="-z-10 absolute inset-0 w-full h-full object-cover"
+		/>
+		<Heading
+			tagName="h4"
+			tagSize="h4"
+			class:list={"bottom-5 z-10 left-5 text-left absolute uppercase"}
+			>{title}</Heading
+		>
+	</div>
+
+	<!-- Overlay -->
+	<div
+		class="absolute inset-0 flex flex-col justify-center gap-4 bg-accent opacity-0 group-hover:opacity-100 px-5 w-full h-full text-black transition-all duration-500"
+	>
+		<Heading
+			tagName="h4"
+			tagSize="h4"
+			class:list={"uppercase font-extrabold!"}>{titleOverlay}</Heading
+		>
+		<p>{descriptionOverlay}</p>
+	</div>
+</article>
+
+<style>
+	article:hover {
+		transform: rotate3d(-1, 1, 0, 20deg);
+	}
+</style>
+
+<script>
+	import gsap from "gsap";
+
+	gsap.from(".card", {
+		scale: 0.8,
+		opacity: 0,
+		duration: 1,
+		scrollTrigger: {
+			trigger: ".card",
+			scroller: "body",
+			start: "top bottom",
+			end: "center 80%",
+			markers: true,
+			scrub: 1,
+		},
+	});
+</script>

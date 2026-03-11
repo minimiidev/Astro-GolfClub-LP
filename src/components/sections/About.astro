@@ -1,0 +1,60 @@
+---
+import Heading from "../ui/Heading.astro";
+---
+
+<section class="flex-center my-20 h-fit">
+	<article
+		class="flex flex-wrap xl:flex-nowrap justify-around items-center gap-10 container"
+	>
+		<img src="/page2-left.avif" alt="Some image" class="order-1" />
+		<div
+			id="about-text"
+			class="flex-col flex-center order-3 xl:order-2 text-center"
+		>
+			<Heading tagName="h3" tagSize="h2" class:list={"uppercase mb-5"}
+				>About Us</Heading
+			>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Praesentium voluptates sunt voluptate placeat eum nisi accusamus
+				nam consequatur! Amet, alias?
+			</p>
+		</div>
+		<img
+			src="/page2-right.avif"
+			alt="Some image"
+			class="order-2 xl:order-3"
+		/>
+	</article>
+</section>
+
+<style>
+	@import "@/styles/global.css";
+
+	img {
+		max-width: 45%;
+		width: 300px;
+		height: 300px;
+		@apply rounded-2xl object-cover;
+	}
+</style>
+
+<script>
+	import gsap from "gsap";
+
+	const aboutText = document.querySelector("#about-text") as HTMLDivElement;
+
+	gsap.from(aboutText, {
+		y: 50,
+		opacity: 0,
+		duration: 1,
+		stagger: 0.4,
+		scrollTrigger: {
+			trigger: aboutText,
+			scroller: "body",
+			start: "top 70%",
+			end: "top 58%",
+			scrub: 3,
+		},
+	});
+</script>
