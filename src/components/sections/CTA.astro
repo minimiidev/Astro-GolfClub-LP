@@ -1,5 +1,26 @@
 ---
 import Heading from "../ui/Heading.astro";
+
+const services = [
+	{
+		title: "TopTracer Range",
+		description:
+			"Real-time ball tracking and virtual games for a modern practice session.",
+		image: "/service1.png",
+	},
+	{
+		title: "Pro Lessons",
+		description:
+			"Refine your technique with our PGA certified professional coaching staff.",
+		image: "/service2.png",
+	},
+	{
+		title: "Adventure Golf",
+		description:
+			"Family-friendly courses designed for fun, challenge, and memorable moments.",
+		image: "/service3.png",
+	},
+];
 ---
 
 <section class="my-12 w-full">
@@ -11,55 +32,27 @@ import Heading from "../ui/Heading.astro";
 			class:list={"text-center [-webkit-text-stroke:1px_white] text-black stroke -mb-3"}
 			>WHAT ARE YOU WAITING FOR?</Heading
 		>
-		<div class="flex gap-4">
-			<article
-				class="group relative flex-center bg-accent rounded-4xl w-full h-44 overflow-hidden text-black"
-			>
-				<img
-					src="/card1.avif"
-					alt=""
-					class="absolute opacity-0 group-hover:opacity-100 w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
-				/>
-				<Heading
-					tagName="h4"
-					tagSize="h4"
-					class:list={"z-10 relative group-hover:text-white transition-colors duration-500"}
-				>
-					TOPTRACER RANGE
-				</Heading>
-			</article>
-			<article
-				class="group relative flex-center bg-accent rounded-4xl w-full h-44 overflow-hidden text-black"
-			>
-				<img
-					src="/card1.avif"
-					alt=""
-					class="absolute opacity-0 group-hover:opacity-100 w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
-				/>
-				<Heading
-					tagName="h4"
-					tagSize="h4"
-					class:list={"z-10 relative group-hover:text-white transition-colors duration-500"}
-				>
-					TOPTRACER RANGE
-				</Heading>
-			</article>
-			<article
-				class="group relative flex-center bg-accent rounded-4xl w-full h-44 overflow-hidden text-black"
-			>
-				<img
-					src="/card1.avif"
-					alt=""
-					class="absolute opacity-0 group-hover:opacity-100 w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
-				/>
-				<Heading
-					tagName="h4"
-					tagSize="h4"
-					class:list={"z-10 relative group-hover:text-white transition-colors duration-500"}
-				>
-					TOPTRACER RANGE
-				</Heading>
-			</article>
+		<div class="flex lg:flex-row flex-col gap-4 w-full">
+			{
+				services.map((service) => (
+					<article class="group relative flex-center bg-accent rounded-4xl w-full h-44 overflow-hidden text-black">
+						<img
+							src={service.image}
+							alt=""
+							class="absolute opacity-0 group-hover:opacity-100 w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+						/>
+						<Heading
+							tagName="h4"
+							tagSize="h4"
+							class:list={
+								"z-10 uppercase relative group-hover:text-white transition-colors duration-500"
+							}
+						>
+							{service.title}
+						</Heading>
+					</article>
+				))
+			}
 		</div>
 	</div>
 </section>
@@ -73,10 +66,6 @@ import Heading from "../ui/Heading.astro";
 	const ctaTitle = document.querySelector("#cta-title") as HTMLElement;
 	const splitTitle = new SplitText(ctaTitle, {
 		type: "words",
-	});
-	splitTitle.words.forEach((word) => {
-		word.classList.add("inline-block");
-		word.classList.add("px-4");
 	});
 
 	gsap.from(splitTitle.words, {

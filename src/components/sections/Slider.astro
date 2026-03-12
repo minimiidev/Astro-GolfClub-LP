@@ -1,26 +1,37 @@
 ---
+import ButtonCTA from "../ui/ButtonCTA.astro";
 import Heading from "../ui/Heading.astro";
 ---
 
-<section class="flex-center my-40 h-[550px] overflow-hidden">
-	<div class="flex-center gap-12 h-full container">
-		<article class="rounded-3xl w-1/2 h-full overflow-hidden">
-			<img src="/menu1.avif" alt="" class="w-full h-full object-cover" />
-		</article>
+<section class="flex-center my-40 md:h-[550px]">
+	<div class="md:flex-row flex-col flex-center gap-16 h-full container">
+		<div class="relative rounded-3xl md:w-1/2 h-full">
+			<img
+				src="/menu2.png"
+				alt=""
+				class="ml-10 md:ml-0 rounded-2xl w-2/3 md:w-full md:h-full object-cover"
+			/>
+			<img
+				src="/menu1.png"
+				alt=""
+				class="-top-20 right-10 md:-right-10 md:-bottom-10 z-10 absolute border-4 border-black rounded-2xl w-1/2 md:w-[300px] object-cover"
+			/>
+		</div>
 
-		<article class="w-1/2">
+		<article class="md:w-1/2">
+			<p class="font-medium text-amber-400">SOCIAL HUB</p>
 			<Heading
 				tagName="h2"
 				tagSize="h2"
-				class:list={"font-extrabold! mb-12"}>Food And Drink</Heading
+				class:list={"font-extrabold! mb-12"}>Dining & Social</Heading
 			>
-			<p class="leading-10">
-				Whether you’re getting ready to play, just finishing your
-				practice session or feeling peckish on the range, we have a
-				variety of food and drink options bought directly to your table
-				or bay. We make sure that we cater for everyone, offering a
-				range of vegan and gluten free options.
+			<p class="mb-6 leading-10">
+				Our clubhouse cafe isn't just about the food—it's the heart of
+				our community. Enjoy artisanal coffee, seasonal gourmet dishes,
+				and signature cocktails in a space that blends classic club
+				elegance with contemporary comfort.
 			</p>
+			<ButtonCTA href="#" color="custom">View Menu</ButtonCTA>
 		</article>
 	</div>
 </section>

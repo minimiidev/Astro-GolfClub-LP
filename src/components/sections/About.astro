@@ -2,28 +2,34 @@
 import Heading from "../ui/Heading.astro";
 ---
 
-<section class="flex-center my-20 h-fit">
+<section id="about" class="flex-center my-20 h-fit">
 	<article
 		class="flex flex-wrap xl:flex-nowrap justify-around items-center gap-10 container"
 	>
-		<img src="/page2-left.avif" alt="Some image" class="order-1" />
+		<img
+			src="/page2-left.avif"
+			alt="Some image"
+			class="order-1 border-2 border-accent"
+		/>
 		<div
 			id="about-text"
-			class="flex-col flex-center order-3 xl:order-2 text-center"
+			class="flex-col flex-center gap-4 order-3 xl:order-2 text-center"
 		>
-			<Heading tagName="h3" tagSize="h2" class:list={"uppercase mb-5"}
+			<Heading tagName="h3" tagSize="h2" class:list={"uppercase "}
 				>About Us</Heading
 			>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				Praesentium voluptates sunt voluptate placeat eum nisi accusamus
-				nam consequatur! Amet, alias?
+			<p class="font-medium text-accent text-xl!">Established 1924</p>
+			<p class="font-light">
+				"Established with a passion for the game, The Golf Club offers a
+				sophisticated blend of heritage and modern facilities. Join us
+				for an unparalleled experience on the greens where every swing
+				tells a story."
 			</p>
 		</div>
 		<img
 			src="/page2-right.avif"
 			alt="Some image"
-			class="order-2 xl:order-3"
+			class="order-2 xl:order-3 border-2 border-accent"
 		/>
 	</article>
 </section>
@@ -42,6 +48,7 @@ import Heading from "../ui/Heading.astro";
 <script>
 	import gsap from "gsap";
 
+	const about = document.querySelector("#about") as HTMLDivElement;
 	const aboutText = document.querySelector("#about-text") as HTMLDivElement;
 
 	gsap.from(aboutText, {
@@ -50,7 +57,7 @@ import Heading from "../ui/Heading.astro";
 		duration: 1,
 		stagger: 0.4,
 		scrollTrigger: {
-			trigger: aboutText,
+			trigger: about,
 			scroller: "body",
 			start: "top 70%",
 			end: "top 58%",

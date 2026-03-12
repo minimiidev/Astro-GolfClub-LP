@@ -1,15 +1,32 @@
 ---
+import ButtonCTA from "../ui/ButtonCTA.astro";
 import Heading from "../ui/Heading.astro";
 ---
 
 <section
-	class="flex justify-between items-center bg-gradient-to-r from-accent w-full h-[30vh] overflow-hidden to-accent-dark"
+	class="relative flex flex-col justify-between items-center bg-linear-to-r from-accent my-20 py-12 w-full min-h-[30vh] md:max-h-100 overflow-hidden to-accent-dark"
 >
-	<img src="/dots-side.svg" alt="" class="w-42" />
-	<div class="container">
-		<Heading tagName="h2" tagSize="h2" class:list={"text-black flex-center"}
+	<img
+		src="/dots-side.svg"
+		alt=""
+		class="-top-30 right-1/2 md:bottom-0 md:left-0 absolute w-42 rotate-90 md:rotate-0 translate-x-1/2 md:translate-x-0"
+	/>
+	<div
+		class="flex flex-col justify-center items-center gap-6 py-50 md:py-0 w-full container"
+	>
+		<Heading tagName="h2" tagSize="h3" class:list={"text-white text-center"}
 			>Ready to start your journey?</Heading
 		>
+		<p class="lg:w-1/2 font-light text-slate-600 text-center">
+			Join a community that celebrates the spirit of golf. Discover
+			memberships tailored to your lifestyle.
+		</p>
+		<ButtonCTA href="/book-now" color="secondary">Become a Member</ButtonCTA
+		>
 	</div>
-	<img src="/dots-side.svg" alt="" class="w-42 rotate-180" />
+	<img
+		src="/dots-side.svg"
+		alt=""
+		class="right-1/2 md:right-0 -bottom-30 md:bottom-0 absolute w-42 -rotate-90 md:rotate-180 translate-x-1/2 md:translate-x-0"
+	/>
 </section>

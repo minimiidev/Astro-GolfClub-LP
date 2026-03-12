@@ -1,13 +1,14 @@
 ---
 import Heading from "../ui/Heading.astro";
+import Logo from "../ui/Logo.astro";
 ---
 
-<nav class="top-0 left-0 z-50 fixed w-full h-30">
+<nav class="top-0 left-0 z-50 fixed w-full h-29">
 	<div class="flex justify-between items-center h-full container">
-		<article class="flex items-center gap-4">
-			<img src="icon.png" alt="" />
-			<Heading tagName="h3" tagSize="h3"> GOLF CLUB </Heading>
-		</article>
+		<Logo />
+
+		<!-- MENU -->
+		<button id="menuBtn" class="px-4 py-2">MENU</button>
 		<ul class="hidden lg:flex items-center gap-4 [&>li]:font-medium">
 			<li><a href="#">TOPTRACER RANGE</a></li>
 			<li><a href="#">GOLF LESSONS</a></li>
@@ -18,16 +19,47 @@ import Heading from "../ui/Heading.astro";
 	</div>
 </nav>
 
+<div
+	id="sideBar"
+	class="top-0 -left-full z-40 fixed w-[65%] h-dvh bg-accent-dark"
+>
+	<ul
+		class="flex flex-col items-start gap-4 pt-35 [&>li]:font-medium container"
+	>
+		<li><a href="#">TOPTRACER RANGE</a></li>
+		<li><a href="#">GOLF LESSONS</a></li>
+		<li><a href="#">AVENTURE GOLF</a></li>
+		<li><a href="#">COFFE SHOP</a></li>
+		<li><a href="#">LEAGUES</a></li>
+	</ul>
+</div>
+
 <script>
 	import gsap from "gsap";
-	import ScrollTrigger from "gsap/ScrollTrigger";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 	gsap.registerPlugin(ScrollTrigger);
 
 	const nav = document.querySelector("nav") as HTMLElement;
+	const sideBar = document.querySelector("#sideBar") as HTMLElement;
+
+	const menuBtn = document.querySelector("#menuBtn") as HTMLElement;
+	let isOpen = false;
+
+	menuBtn.addEventListener("click", () => {
+		isOpen = !isOpen;
+
+		gsap.to(sideBar, {
+			left: isOpen ? "0%" : "-65%",
+			duration: 0.5,
+			ease: "power3.out",
+		});
+
+		menuBtn.textContent = isOpen ? "CLOSE" : "MENU";
+	});
 
 	gsap.to(nav, {
-		backgroundColor: "#000",
+		backgroundColor: "var(--color-accent-dark)",
 		duration: 0.5,
 		height: "120px",
 		delay: 1,
@@ -37,6 +69,12 @@ import Heading from "../ui/Heading.astro";
 			start: "top -20%",
 			end: "top -50%",
 			scrub: 1,
+			onEnter: () => {
+				nav.classList.add("shadow-md");
+			},
+			onEnterBack: () => {
+				nav.classList.remove("shadow-md");
+			},
 		},
 	});
 </script>

@@ -3,7 +3,7 @@ import Heading from "../ui/Heading.astro";
 import VideoBackground from "./VideoBackground.astro";
 ---
 
-<section class="relative flex-center -mb-20 min-h-dvh">
+<section class="relative flex-center min-h-dvh">
 	<!-- HERO -->
 	<div
 		id="hero"
@@ -23,12 +23,12 @@ import VideoBackground from "./VideoBackground.astro";
 			</Heading>
 		</span>
 		<Heading id={"hero-subtitle"} tagName="h1" tagSize="h2"
-			>WELCOME TO THE GOLF CLUB!
+			>Experience the <br />
+			<span class="text-accent"> Finest Fairways</span>
 		</Heading>
-		<p id={"hero-text"} class="w-1/2 font-light text-xl!">
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil a
-			blanditiis cumque necessitatibus quas in tempore aperiam tempora
-			dolore ab?
+		<p id={"hero-text"} class="md:w-1/2 font-light text-xl!">
+			A retro-modern sanctuary for golf enthusiasts. Where tradition meets
+			innovation in the heart of the valley.
 		</p>
 	</div>
 </section>
@@ -49,11 +49,15 @@ import VideoBackground from "./VideoBackground.astro";
 
 	const tl = gsap.timeline();
 
-	tl.from(heroTitle, {
-		opacity: 0,
-		y: 40,
-		duration: 0.3,
-	})
+	tl.from(
+		heroTitle,
+		{
+			opacity: 0,
+			y: 40,
+			duration: 0.3,
+		},
+		"-=0.2",
+	)
 		.from(heroTitleOverlay, {
 			opacity: 0,
 			y: 40,
